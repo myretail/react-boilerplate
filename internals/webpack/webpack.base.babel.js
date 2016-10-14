@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
 const postcssFocus = require('postcss-focus');
 const postcssReporter = require('postcss-reporter');
+const postcssAssets  = require('postcss-assets');
 
 module.exports = (options) => ({
   entry: options.entry,
@@ -60,6 +61,11 @@ module.exports = (options) => ({
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports?self.fetch!whatwg-fetch',
+      $: 'jquery',
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      "root.jQuery": "jquery",
+
     }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
@@ -79,6 +85,7 @@ module.exports = (options) => ({
     postcssReporter({ // Posts messages from plugins to the terminal
       clearMessages: true,
     }),
+    postcssAssets(),
   ],
   resolve: {
     modules: ['app', 'node_modules'],

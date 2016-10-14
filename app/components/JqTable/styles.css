@@ -1,0 +1,76 @@
+.jqTable { /* stylelint-disable */
+
+}
+
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+  background-color:#ddd;
+  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #eee), color-stop(100%, #ddd))
+}
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td {
+  text-align: right;
+}
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td:first-child{
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+.ui-jqgrid tr.jqgrow > td, .ui-jqgrid tr.jqgroup > td, .ui-jqgrid tr.jqfoot > td, .ui-jqgrid tr.jqfoot > td{
+  padding: 5px;
+}
+.ui-jqgrid .ui-jqgrid-htable .ui-jqgrid-labels th div {
+  padding: 5px;
+}
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td {
+
+  padding: 5px;
+}
+.ui-jqgrid .ui-th-subgrid {
+  height: 30px;
+}
+.ui-jqgrid .ui-subgrid tr.ui-subtblcell td {
+  height: 25px;
+
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 1px solid #d3d3d3;
+}
+
+.ui-jqgrid > .ui-jqgrid-view{
+  font-size: 12px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+  background: none;
+
+}
+.ui-widget{
+  font-size:12px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+  border-radius: 0px/*{cornerRadius}*/;
+}
+.ui-widget-content {
+  border: 1px solid #d3d3d3;
+}
+.ui-jqgrid > .ui-jqgrid-view > .ui-jqgrid-hdiv {
+  border-bottom: 2px solid #d3d3d3;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight,.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+  background-color: #eee;
+  background-image: none;
+  border-color: #d3d3d3;
+}
+.ui-corner-bottom {
+  border-bottom: none;
+
+}

@@ -235,6 +235,8 @@
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
     "warning": "3.0.0",
+    "jsonp-es6": "^1.0.0",
+    "free-jqgrid": "^4.13.4",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
