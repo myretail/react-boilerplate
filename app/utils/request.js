@@ -2,6 +2,7 @@ import 'whatwg-fetch';
 
 /**
  * Parses the JSON returned by a network request
+ * 详细用法见 ： https://github.github.io/fetch/
  *
  * @param  {object} response A response from a network request
  *
