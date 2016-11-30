@@ -15,7 +15,9 @@ const loadModule = (cb) => (componentModule) => {
 export default function createRoutes(store) {
   // create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store);
-
+    //所有模块都使用的功能，首先初始化他们
+    //injectReducer('menu', menuReducer);
+    //injectSagas(menuSagas);
   return [
     {
       path: '/',

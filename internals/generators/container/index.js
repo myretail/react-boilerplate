@@ -5,11 +5,11 @@
 const componentExists = require('../utils/componentExists');
 
 module.exports = {
-  description: 'Add a container component',
+  description: 'Add a container component,添加容器组件',
   prompts: [{
     type: 'input',
     name: 'name',
-    message: 'What should it be called?',
+    message: 'What should it be called?请输入名称',
     default: 'Form',
     validate: (value) => {
       if ((/.+/).test(value)) {
@@ -21,28 +21,28 @@ module.exports = {
   }, {
     type: 'confirm',
     name: 'wantHeaders',
-    default: false,
-    message: 'Do you want headers?',
+    default: true,
+    message: 'Do you want headers?是否需要修改页面标题',
   }, {
     type: 'confirm',
     name: 'wantCSS',
-    default: false,
-    message: 'Does it have styling?',
+    default: true,
+    message: 'Does it have styling?是否需要添加样式',
   }, {
     type: 'confirm',
     name: 'wantActionsAndReducer',
     default: true,
-    message: 'Do you want an actions/constants/selectors/reducer tupel for this container?',
+    message: 'Do you want an actions/constants/selectors/reducer tupel for this container?是否需要Action',
   }, {
     type: 'confirm',
     name: 'wantSagas',
     default: true,
-    message: 'Do you want sagas for asynchronous flows? (e.g. fetching data)',
+    message: 'Do you want sagas for asynchronous flows? (e.g. fetching data)是否需要异步获取数据',
   }, {
     type: 'confirm',
     name: 'wantMessages',
     default: true,
-    message: 'Do you want i18n messages (i.e. will this component use text)?',
+    message: 'Do you want i18n messages (i.e. will this component use text)?是否需要国际化',
   }],
   actions: (data) => {
     // Generate index.js and index.test.js

@@ -6,10 +6,26 @@
 
 import {
   DEFAULT_ACTION,
+  LOAD_SUCCESS,
+  LOAD_ERROR,
 } from './constants';
 
 export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
+  };
+}
+
+export function loadSuccess(list) {
+  return {
+    type: LOAD_SUCCESS,
+    list
+  };
+}
+
+export function loadingError(error) {
+  return {
+    type: LOAD_ERROR,
+    error,
   };
 }

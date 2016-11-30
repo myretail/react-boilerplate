@@ -12,8 +12,17 @@ const app = express();
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-// const proxy = require('http-proxy-middleware');
-// app.use('/rest/*', proxy({ target: 'http://localhost:8080', changeOrigin: true }));
+
+//后台服务的端口号
+const backendPort = argv.backendport || process.env.BACKEND_PORT || 8089;
+
+const backend= proxy({ target: `http://localhost:${backendPort}`, changeOrigin: true });
+app.use('/hbase/*', backend);
+app.use('/es/*', backend);
+app.use('/rest/*', backend);
+
+
+
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

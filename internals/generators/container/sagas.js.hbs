@@ -1,9 +1,45 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
+import { LOCATION_CHANGE } from 'react-router-redux';
+import { DEFAULT_ACTION } from './constants';
+import { loadSuccess, loadingError } from './actions';
 
-// Individual exports for testing
-export function* defaultSaga() {
-  return;
+import request from 'utils/request';
+
+export function* fetchData() {
+
+const url = '/rest/auth/listsByErp';
+
+const list = yield call(request, url);
+
+if (!list.err) {
+  yield put(loadSuccess(list.data));
+} else {
+  yield put(loadingError(list.err));
 }
+}
+
+/**
+* Watches for LOAD action and calls handler
+*/
+export function* getWatcher() {
+
+  while (yield take(DEFAULT_ACTION)) {
+    yield call(fetchData);
+  }
+}
+
+/**
+* Root saga manages watcher lifecycle
+*/
+export function* defaultSaga() {
+  // Fork watcher so we can continue execution
+  const watcher = yield fork(getWatcher);
+
+  // Suspend execution until location changes
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
+
 
 // All sagas to be loaded
 export default [

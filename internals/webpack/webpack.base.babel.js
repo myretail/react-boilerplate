@@ -26,7 +26,7 @@ module.exports = (options) => ({
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
       test: /\.css$/,
-      exclude: /node_modules/,
+      exclude: [/node_modules/,/comboMenu.css/],
       loader: options.cssLoaders,
     }, {
       // Do not transform vendor's CSS with CSS-modules
@@ -35,7 +35,7 @@ module.exports = (options) => ({
       // they will be a part of our compilation either way.
       // So, no need for ExtractTextPlugin here.
       test: /\.css$/,
-      include: /node_modules/,
+      include: [/node_modules/,/comboMenu.css/],
       loaders: ['style-loader', 'css-loader'],
     }, {
       test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -85,7 +85,9 @@ module.exports = (options) => ({
     postcssReporter({ // Posts messages from plugins to the terminal
       clearMessages: true,
     }),
-    postcssAssets(),
+    postcssAssets({
+      loadPaths: ['**']
+    }),
   ],
   resolve: {
     modules: ['app', 'node_modules'],
