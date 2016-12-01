@@ -1,8 +1,7 @@
-import 'whatwg-fetch';
+import jsonp from 'jsonp-es6';
 
 /**
  * Parses the JSON returned by a network request
- * 详细用法见 ： https://github.github.io/fetch/
  *
  * @param  {object} response A response from a network request
  *
@@ -20,6 +19,8 @@ function parseJSON(response) {
  * @return {object|undefined} Returns either the response, or throws an error
  */
 function checkStatus(response) {
+
+
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -38,9 +39,9 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default function request(url, options) {
-  return fetch(url, options)
-    .then(checkStatus)
-    .then(parseJSON)
+  return jsonp(url, options)
+    //.then(checkStatus)
+    //.then(parseJSON)
     .then((data) => ({ data }))
     .catch((err) => ({ err }));
 }
